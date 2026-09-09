@@ -6,6 +6,8 @@ from store import apply_discount, can_checkout, loyalty_discount, shipping_cost
 class StoreTests(unittest.TestCase):
     def test_regular_shipping(self):
         self.assertEqual(shipping_cost(500), 99.0)
+    def test_shipping_cost_morethan_1000(self):
+        self.assertEqual(shipping_cost(1500), 0.00)
 
     def test_negative_subtotal_is_invalid(self):
         with self.assertRaises(ValueError):
